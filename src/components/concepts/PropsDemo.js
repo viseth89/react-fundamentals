@@ -39,10 +39,10 @@ const PropsDemo = () => {
         <div className='main'>
             <div className='mainDiv'>
                 <div style={styles}>
-                <FunctionalComponent string='This will change the Color' function={toggleColor}/>
-                <FunctionalComponent string="This will change the background" function={toggleBackgroundColor}/>
-                <FunctionalComponent string='This will change the border-radius...' function={toggleBorderRadius}/>
-                <FunctionalComponent string='This will change the border-style' function={toggleBorderStyle}/>
+                <FunctionalComponent string='This will change the Color' function={toggleColor} selectedStyle={color}/>
+                <FunctionalComponent string="This will change the background" function={toggleBackgroundColor} selectedStyle={backgroundColor}/>
+                <FunctionalComponent string='This will change the border-radius...' function={toggleBorderRadius} selectedStyle={borderRadius}/>
+                <FunctionalComponent string='This will change the border-style' function={toggleBorderStyle} selectedStyle={borderStyle}/>
                 {/* I find this extremely strange and have not yet picked up the pattern nor do I see how it is effective/effeicent */}
                 </div>
             </div>
@@ -57,6 +57,15 @@ const FunctionalComponent = (props) => {
         <div>
             <p>{props.string}</p>
             <button onClick={props.function}>Press Me!</button>
+            <TinyComponent selectedStyle={ props.selectedStyle } />
         </div>
     );
 };
+
+const TinyComponent = (props) => {
+    return(
+        <div>
+            <p>The current style is : { props.selectedStyle }</p>
+        </div>
+    )
+}
