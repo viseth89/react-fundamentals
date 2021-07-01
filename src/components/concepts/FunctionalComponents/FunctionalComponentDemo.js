@@ -49,9 +49,9 @@ const FunctionalComponentDemo = () => {
           </dl>
         </Col>
       </Row>
-<hr />
-<h1>Challenge 1</h1>
-      <h1>Functional syntas versus Arrow Function</h1>
+      <h1>Functional syntax versus Arrow Function</h1>
+      <hr />
+      <h1>Challenge 1</h1>
       <Row>
         <Col md="6">
           <HelloWorldFatArrow className="logo" />
