@@ -23,6 +23,28 @@ export default Effects;
 const SampleEffect = () => {
     const[timerRunning, setTimerRunning] = useState(false);
 
+    useEffect(() => {
+        let timer;
+        if(timerRunning) {
+            timer = window.setTimeout(() => {
+                console.log('the timer expired', Date.now()/1000);
+                setTimerRunning(false);
+            }, 2000)
+        };
+
+        return () => {window.clearTimeout(timer); console.log('the timer was cleanedup', Date.now()/1000)}; 
+    });
+
+    useEffect(() => {
+        console.log('this painting needs some happy trees')
+    }, []);
+
+    let buttonHandler = () => {
+        if(!timerRunning) {
+            setTimerRunning(true);
+        }
+    };
+
     return(
         <div style={{border: '1px dashed black'}}>
             <h2>This component demos and effect</h2>
