@@ -23,14 +23,26 @@ const PropsDemo = () => {
         color === 'white' ? setColor('pink') : setColor('white');
     }
 
+    const toggleBackgroundColor = () => {
+        backgroundColor === 'purple' ? setBackgroundColor('black') : setBackgroundColor('purple');
+    };
+
+    const toggleBorderRadius = () => {
+        borderRadius === '5px' ? setBorderRadius('20px') : setBorderRadius('5px');
+    }
+
+    const toggleBorderStyle = () => {
+        borderStyle == 'dashed' ? setBorderStyle('double') : setBorderStyle('dashed');
+    }
+
     return(
         <div className='main'>
             <div className='mainDiv'>
                 <div style={styles}>
-                <FunctionalComponent string='will this display?' function={toggleColor}/>
-                <FunctionalComponent string="props are pretty cool, right?" function={toggleColor}/>
-                <FunctionalComponent string='you can send data from one component...' function={toggleColor}/>
-                <FunctionalComponent string='... to another!' function={toggleColor}/>
+                <FunctionalComponent string='This will change the Color' function={toggleColor}/>
+                <FunctionalComponent string="This will change the background" function={toggleBackgroundColor}/>
+                <FunctionalComponent string='This will change the border-radius...' function={toggleBorderRadius}/>
+                <FunctionalComponent string='This will change the border-style' function={toggleBorderStyle}/>
                 {/* I find this extremely strange and have not yet picked up the pattern nor do I see how it is effective/effeicent */}
                 </div>
             </div>
